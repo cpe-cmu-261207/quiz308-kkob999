@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { comments,CommentType } from './data/comments';
+ 
 
 function App() {
   return (
@@ -13,8 +15,8 @@ function App() {
 
           {/* image and name */}
           <div className="flex space-x-2 items-center">
-            <img className="w-12 h-12 rounded-full" src="/profileImages/handsome.jpg"></img>
-            <span className='font-semibold text-lg text-white'>Chayanin Suatap 610631100</span>
+            <img className="w-12 h-12 rounded-full" src="/profileImages/bird.png"></img>
+            <span className='font-semibold text-lg text-white'>Chommanee Rujijanakul 630610725</span>
           </div>
 
           {/* status message */}
