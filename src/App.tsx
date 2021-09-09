@@ -1,10 +1,24 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { comments,CommentType } from './data/comments';
- 
+import { comments, CommentType } from './data/comments';
+import ComputeLike from './data/comment';
+import computeRepile from './data/repile';
+
+
+
 
 function App() {
+  const arrayComment = comments
+
+  const num = (props: CommentType) => {
+    if (props.likeNum > 0) {
+      return props.likeNum
+    }
+    else{
+      return 0
+    }
+  }
   return (
     <div className="p-2">
       {/* post container */}
@@ -34,19 +48,16 @@ function App() {
         <div className="">
 
           {/* normal comment */}
-          <div className="flex p-2 items-start space-x-2">
-            <img className="w-10 w-10 rounded-full" src="/profileImages/lisa.jpg"></img>
-            <div className="bg-gray-500 rounded-lg p-2">
-              <p className="font-semibold text-white">Lisa</p>
-              <p className='text-white'>ตัวอย่าง Template จ้า</p>
-              {/* like section (จะไม่แสดงถ้าไม่มีใครไลค์เลย) */}
-              <div className='flex items-center'>
-                <img className='w-4 h-4 mr-1' src='/like.svg'></img>
-                <p className='text-gray-300'>999 คน</p>
-              </div>
-            </div>
-          </div>
 
+
+
+
+          <ComputeLike username={"lisa"} userImagePath={'/profileImages/lisa.jpg'} commentText={'จริงค่า'} likeNum={999}
+            replies={
+              [
+
+              ]
+            } />
           {/* replies */}
           {/* ต่างกันตรงที่มี padding มากกว่าเท่านั้น (pl-14) */}
           <div className="flex p-2 items-start space-x-2 pl-14">
@@ -56,6 +67,27 @@ function App() {
               <p className='text-white'>เม้นค้าบ</p>
             </div>
           </div>
+          <div className="flex p-2 items-start space-x-2 pl-14">
+            <img className="w-10 w-10 rounded-full" src="/profileImages/popcat.png"></img>
+            <div className="bg-gray-500 rounded-lg p-2">
+              <p className="font-semibold text-white">แมวตัวหนึ่ง</p>
+              <p className='text-white'>ลิซ่าาาาาาา</p>
+              <div className='flex items-center'>
+                <img className='w-4 h-4 mr-1' src='/like.svg'></img>
+                <p className='text-gray-300'>2 คน</p>
+              </div>
+            </div>
+          </div>
+          <ComputeLike username={"Charlie Brown"} userImagePath={'/profileImages/charliebrown.jpg'} commentText={'บ้าไปแล้ว'} likeNum={207}
+            replies={
+              [
+
+              ]
+
+            } />
+
+
+
 
         </div>
 
